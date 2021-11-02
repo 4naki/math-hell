@@ -1,4 +1,4 @@
-@name straightBezier Function
+@name straightBezier Function V1
 @inputs [StartPos MiddlePos EndPos]:vector
 @persist Mix Add
 @trigger none
@@ -8,11 +8,7 @@ if(first()){
     holoCreate(1)
     
     function vector straightBezier(V1:vector ,V2:vector ,V3:vector ,M ){
-        if(M<0.5){
-            return mix(V2,V1,M*2)
-        }else{
-            return mix(V3,V2,(M-0.5)*2)
-        }
+        return (M < 0.5) ? mix(V2,V1,M*2) : mix(V3,V2,(M-0.5)*2)
     }
     
 }
