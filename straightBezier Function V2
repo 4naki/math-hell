@@ -10,11 +10,7 @@ if(first()){
     Height=50
     
     function vector straightBezier(V1:vector ,H:number ,V3:vector ,M ){
-        if(M<0.5){
-            return mix(((V1+V3)/2)+vec(0,0,H),V1,M*2)
-        }else{
-            return mix(V3,((V1+V3)/2)+vec(0,0,H),(M-0.5)*2)
-        }
+        return (M < 0.5) ? mix(((V1+V3)/2)+vec(0,0,H),V1,M*2) : mix(V3,((V1+V3)/2)+vec(0,0,H),(M-0.5)*2)
     }
     
 }
