@@ -1,0 +1,27 @@
+@name Polar Cartesian Test
+
+# This can be useful for the holo emitter system!!
+
+function table vector2:toPolar() {
+    
+    local RetVal = table()
+    RetVal["Radius", number]  =  sqrt( This:x()^2 + This:y()^ 2 )
+    RetVal["Theta",  number]  =  atan( This:y() / This:x() )
+    
+    return RetVal
+    
+}
+
+function vector2 table:toCartesian() {
+    
+    X =  This["Radius", number] * cos( This["Theta", number] )
+    Y =  This["Radius", number] * sin( This["Theta", number] )
+    return vec2(X, Y)
+    
+}
+
+local Payload   = vec2(5, 1)
+local Polar     = Payload:toPolar()
+local Cartesian = Polar:toCartesian()
+
+print("Payload: " + toString(Payload) + ", Polar: Radius=" + Polar["Radius", number] + " Theta=" + Polar["Theta", number] + ", Cartesian: " + toString(Cartesian))
